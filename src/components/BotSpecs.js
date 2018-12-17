@@ -19,6 +19,16 @@ const BotSpecs = props => {
       botType = <div />;
   }
 
+  const handleClick = (e) => {
+    e.persist()
+
+    if (e.target.innerText === "Enlist") {
+      props.toggleEnlist(bot)
+    }
+    
+    props.toggleDisplay(bot)
+  }
+
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
@@ -60,19 +70,13 @@ const BotSpecs = props => {
             </div>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log('connect this to a function that shows all bots')
-              }
+              onClick={handleClick}
             >
               Go Back
             </button>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log(
-                  "connect this to a function that adds this bot to your bot army list"
-                )
-              }
+              onClick={handleClick}
             >
               Enlist
             </button>
