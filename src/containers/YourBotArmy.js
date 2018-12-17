@@ -4,8 +4,8 @@ import BotCard from "../components/BotCard";
 class YourBotArmy extends React.Component {
   
   listBots = (bots) => {
-    return bots.map((bot, index) => {
-      return <BotCard key={index} bot={bot} handleClick={this.props.toggleEnlist} />;
+    return bots.map((bot) => {
+      return <BotCard key={bot.id} bot={bot} handleClick={this.props.toggleEnlist} />;
     })
   }
 

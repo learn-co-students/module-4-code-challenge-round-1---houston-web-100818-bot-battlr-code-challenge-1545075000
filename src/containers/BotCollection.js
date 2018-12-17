@@ -12,8 +12,8 @@ class BotCollection extends React.Component {
 	}
 	
 	listBots = (bots) => {
-		return bots.map((bot, index) => {
-			return <BotCard key={index} bot={bot} handleClick={this.toggleDisplay} />
+		return bots.map((bot) => {
+			return <BotCard key={bot.id} bot={bot} handleClick={this.toggleDisplay} />
 		})
 	}
 
