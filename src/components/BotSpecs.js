@@ -1,11 +1,11 @@
 import React from "react";
 
 const BotSpecs = props => {
-  let { bot } = props;
+  console.log(props)
 
   let botType;
 
-  switch (bot.bot_class) {
+  switch (props.selectedBot.bot_class) {
     case "Assault":
       botType = <i className="icon large circular military" />;
       break;
@@ -18,7 +18,7 @@ const BotSpecs = props => {
     default:
       botType = <div />;
   }
-
+ 
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
@@ -27,17 +27,17 @@ const BotSpecs = props => {
             <img
               alt="oh no!"
               className="ui medium circular image bordered"
-              src={bot.avatar_url}
+              src={props.selectedBot[0].avatar_url}
             />
           </div>
           <div className="four wide column">
-            <h2>Name: {bot.name}</h2>
+            <h2>Name: {props.selectedBot[0].name}</h2>
             <p>
               <strong>Catchphrase: </strong>
-              {bot.catchphrase}
+              {props.selectedBot[0].catchphrase}
             </p>
             <strong>
-              Class: {bot.bot_class} {botType}
+              Class: {props.selectedBot[0].bot_class} {botType}
             </strong>
             <br />
             <div className="ui segment">
@@ -45,15 +45,15 @@ const BotSpecs = props => {
                 <div className="row">
                   <div className="column">
                     <i className="icon large circular red heartbeat" />
-                    <strong>{bot.health}</strong>
+                    <strong>{props.selectedBot[0].health}</strong>
                   </div>
                   <div className="column">
                     <i className="icon large circular yellow lightning" />
-                    <strong>{bot.damage}</strong>
+                    <strong>{props.selectedBot[0].damage}</strong>
                   </div>
                   <div className="column">
                     <i className="icon large circular blue shield" />
-                    <strong>{bot.armor}</strong>
+                    <strong>{props.selectedBot[0].armor}</strong>
                   </div>
                 </div>
               </div>
@@ -61,17 +61,15 @@ const BotSpecs = props => {
             <button
               className="ui button fluid"
               onClick={() =>
-                console.log('connect this to a function that shows all bots')
+                props.clearSelected()
               }
             >
               Go Back
             </button>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log(
-                  "connect this to a function that adds this bot to your bot army list"
-                )
+              onClick={(e) =>
+                props.addBot(props.selectedBot[0])
               }
             >
               Enlist
@@ -81,7 +79,6 @@ const BotSpecs = props => {
       </div>
     </div>
   );
-
 };
 
 export default BotSpecs;
