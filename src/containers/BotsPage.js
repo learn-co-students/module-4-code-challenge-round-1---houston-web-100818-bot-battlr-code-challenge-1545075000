@@ -5,7 +5,6 @@ import BotSpecs from '../components/BotSpecs'
 let toggleShow = false;
 
 class BotsPage extends React.Component {
-  //start here with your code for step one
   constructor() {
     super()
     this.state = {
