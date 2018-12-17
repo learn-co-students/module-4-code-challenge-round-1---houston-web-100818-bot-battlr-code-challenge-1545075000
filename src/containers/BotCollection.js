@@ -13,7 +13,7 @@ class BotCollection extends React.Component {
 	
 	listBots = (bots) => {
 		return bots.map((bot, index) => {
-			return <BotCard key={index} bot={bot} toggleDisplay={this.toggleDisplay} />
+			return <BotCard key={index} bot={bot} handleClick={this.toggleDisplay} />
 		})
 	}
 

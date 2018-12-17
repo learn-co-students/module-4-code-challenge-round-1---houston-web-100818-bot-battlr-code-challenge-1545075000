@@ -5,7 +5,7 @@ class YourBotArmy extends React.Component {
   
   listBots = (bots) => {
     return bots.map((bot, index) => {
-      return <BotCard key={index} bot={bot} toggleEnlist={this.props.toggleEnlist} />;
+      return <BotCard key={index} bot={bot} handleClick={this.props.toggleEnlist} />;
     })
   }
 
