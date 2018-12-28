@@ -10,14 +10,13 @@ class YourBotArmy extends React.Component {
           <div className="row bot-army-row">
             Your Bot Army
             {this.props.bots.map( bot => (
-              < BotCard bot={bot} addToArmy={this.props.removeFromArmy} />
+              < BotCard bot={bot} key={bot.id} handleClick={this.props.removeFromArmy} />
             ))}
           </div>
         </div>
       </div>
     );
   }
-
 };
 
 export default YourBotArmy;

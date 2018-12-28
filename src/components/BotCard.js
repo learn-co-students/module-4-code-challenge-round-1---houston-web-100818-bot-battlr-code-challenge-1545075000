@@ -3,8 +3,9 @@ import React from "react";
 class BotCard extends React.Component {
 
   handleClick = () => {
+    // shows bot specs (BotCollection) or removes from army (YourBotArmy)
     let botID = this.props.bot.id
-    this.props.addToArmy(botID)
+    this.props.handleClick(botID)
   }
 
   render(){
